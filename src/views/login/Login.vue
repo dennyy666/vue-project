@@ -40,7 +40,7 @@ const performLogin = async (account: string, _password = '123456') => {
     return
   }
   ElMessage.success('登录成功')
-  router.push('/pages').catch(() => {
+  router.push('/layout').catch(() => {
     // Keep Angular-like flow even when placeholder route is absent.
   })
 }
