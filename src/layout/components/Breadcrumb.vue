@@ -2,8 +2,9 @@
 import { computed, ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useRoute, useRouter } from 'vue-router'
-import avatarImg from '@/assets/avatar.png'
+import { useUserStore } from '@/stores/user'
 const isCollapsed = ref(false)
+const store = useUserStore()
 const user = ref<{ username: string } | null>({ username: 'Admin' })
 const toggle = () => {
     isCollapsed.value = !isCollapsed.value
@@ -37,11 +38,11 @@ const loginOut = async () => {
             <button class="fold" type="button" @click="toggle">{{ isCollapsed ? '展开' : '折叠' }}</button>
             <span class="breadcrumb">{{ activeUrl }}</span>
         </div>
-        <div v-if="user" class="right">
+        <div v-if="store.name" class="right">
             <el-dropdown trigger="click">
                 <div class="user-menu">
-                    <img :src="avatarImg" alt="avatar" />
-                    <span>{{ user.username }}</span>
+                    <img :src="store.avatar" alt="avatar" />
+                    <span>{{ store.name }}</span>
                     <span class="menu-down-icon">▼</span>
                 </div>
                 <template #dropdown>

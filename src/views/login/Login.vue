@@ -3,10 +3,17 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
-
+import { useUserStore } from '@/stores/user'
 interface LoginForm {
   account: string
   password: string
+}
+
+interface DemoUser {
+  name: string
+  avatar: string
+  address: string
+  phone: string
 }
 
 const router = useRouter()
@@ -21,7 +28,10 @@ const rules: FormRules<LoginForm> = {
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
 }
 
-const demoUsers = ['姬虚空', '酒剑仙']
+const demoUsers: DemoUser[] = [
+  { name: '姬虚空', avatar: 'https://s41.ax1x.com/2026/05/07/pebOAgJ.jpg', address: '地球', phone: '12345678901' },
+  { name: '酒剑仙', avatar: 'https://s41.ax1x.com/2026/05/07/pebOEv9.jpg', address: '天涯', phone: '19876543210' },
+]
 
 const handleSubmit = async () => {
   if (!formRef.value) return
@@ -34,11 +44,13 @@ const handleSubmit = async () => {
 }
 
 const performLogin = async (account: string, _password = '123456') => {
-  const hasUser = demoUsers.some((name) => name === account)
-  if (!hasUser) {
+  const user = demoUsers.find((u) => u.name === account)
+  if (!user) {
     ElMessage.warning('用户名或者密码错误')
     return
   }
+  // 使用 demoUsers 中的用户对象信息设置当前用户
+  useUserStore().setUser({ name: user.name, avatar: user.avatar, address: user.address, phone: user.phone })
   ElMessage.success('登录成功')
   router.push('/layout').catch(() => {
     // Keep Angular-like flow even when placeholder route is absent.
@@ -105,7 +117,7 @@ const copy = async (account: string) => {
   z-index: 1;
   background-image: url(https://i.mituw.com/imgs/2026/02/22/42ae779a61d0ec23.jpg);
   background-size: cover;
-  background-position: center center;  
+  background-position: center center;
   min-width: 1200px;
   min-height: 800px;
 }
