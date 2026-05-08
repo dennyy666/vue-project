@@ -44,10 +44,10 @@ const openGithub = () => {
         </ul>
       </li>
       <li class="menu-group">
-        <div class="group-title" :class="{ open: isExampleManageActive }">示例页栏目</div>
+        <div class="group-title" :class="{ open: isExampleManageActive }">表单管理</div>
         <ul class="group-items">
           <li :class="{ selected: isExampleManageActive }">
-            <router-link to="/pages/exampleManage/exampleForm">表单验证</router-link>
+            <router-link to="/layout/formManage/staff">员工信息</router-link>
           </li>
         </ul>
       </li>

@@ -27,6 +27,11 @@ const router = createRouter({
           name: 'iconShow',
           component: () => import('../views/homeConfiguration/iconShow/IconShow.vue'),
         },
+        {
+          path: 'formManage/staff',
+          name: 'staff',
+          component: () => import('../views/formManage/staff/staff.vue'),
+        },
       ],
     },
   ],
