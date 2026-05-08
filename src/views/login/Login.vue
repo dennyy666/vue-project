@@ -29,7 +29,7 @@ const rules: FormRules<LoginForm> = {
 }
 
 const demoUsers: DemoUser[] = [
-  { name: '姬虚空', avatar: 'https://s41.ax1x.com/2026/05/07/pebOAgJ.jpg', address: '地球', phone: '12345678901' },
+  { name: '姬虚空', avatar: 'https://i.cetsteam.com/imgs/2026/05/08/38f2f5af2c44bbab.jpg', address: '地球', phone: '12345678901' },
   { name: '酒剑仙', avatar: 'https://s41.ax1x.com/2026/05/07/pebOEv9.jpg', address: '天涯', phone: '19876543210' },
 ]
 
