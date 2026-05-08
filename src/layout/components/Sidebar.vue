@@ -11,7 +11,7 @@ const activeUrl = computed(() => route.path)
 const isHomeManageActive = computed(() => activeUrl.value.includes('/pages/homeManage'))
 const isExampleManageActive = computed(() => activeUrl.value.includes('/pages/exampleManage'))
 const baidu = () => {
-  window.open('https://www.baidu.com', '_blank')
+  openExternalLink('https://www.baidu.com', '_blank')
 }
 const jumpNotFound = () => {
   router.push('/pages/homeManage/notFound')
