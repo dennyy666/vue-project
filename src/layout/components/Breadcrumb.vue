@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { openExternalLink } from '@/utils'
 const isCollapsed = ref(false)
 const store = useUserStore()
 const user = ref<{ username: string } | null>({ username: 'Admin' })
@@ -13,7 +14,7 @@ const router = useRouter()
 const route = useRoute()
 const activeUrl = computed(() => route.path)
 const openGithub = () => {
-    window.open('https://github.com/dennyy666/manage-angular', '_blank')
+    openExternalLink('https://github.com/dennyy666/manage-angular', '_blank')
 }
 const loginOut = async () => {
     try {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { openExternalLink } from '@/utils'
 import logoImg from '@/assets/mlogo.png'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -16,7 +17,7 @@ const jumpNotFound = () => {
   router.push('/pages/homeManage/notFound')
 }
 const openGithub = () => {
-  window.open('https://github.com/dennyy666/manage-angular', '_blank')
+  openExternalLink('https://github.com/dennyy666/manage-angular', '_blank')
 }
 
 </script>
