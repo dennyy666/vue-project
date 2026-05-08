@@ -22,6 +22,11 @@ const router = createRouter({
           name: 'heroManage',
           component: () => import('../views/homeConfiguration/heroManage/HeroManageView.vue'),
         },
+        {
+          path: 'homeConfiguration/iconShow',
+          name: 'iconShow',
+          component: () => import('../views/homeConfiguration/iconShow/IconShow.vue'),
+        },
       ],
     },
   ],

@@ -23,121 +23,124 @@ const openGithub = () => {
 </script>
 
 <template>
-    <aside :class="{ collapsed: isCollapsed }">
-      <div class="head">
-        <img :src="logoImg" alt="logo" />
-        <span>Angular admin</span>
-      </div>
-      <div class="line"></div>
-      <ul class="menu-list">
-        <li class="menu-group">
-          <div class="group-title" :class="{ open: isHomeManageActive }">首页配置</div>
-          <ul class="group-items">
-            <li :class="{ selected: isHomeManageActive }">
-              <router-link to="/layout/homeConfiguration/heroManage">英雄管理</router-link>
-            </li>
-            <li @click="baidu">百度一下啦</li>
-            <li @click="jumpNotFound">404 页面</li>
-          </ul>
-        </li>
-        <li class="menu-group">
-          <div class="group-title" :class="{ open: isExampleManageActive }">示例页栏目</div>
-          <ul class="group-items">
-            <li :class="{ selected: isExampleManageActive }">
-              <router-link to="/pages/exampleManage/exampleForm">表单验证</router-link>
-            </li>
-          </ul>
-        </li>
-        <li class="menu-item">svg-图标</li>
-        <li class="menu-item" @click="openGithub">项目地址</li>
-      </ul>
-    </aside>  
+  <aside :class="{ collapsed: isCollapsed }">
+    <div class="head">
+      <img :src="logoImg" alt="logo" />
+      <span>Angular admin</span>
+    </div>
+    <div class="line"></div>
+    <ul class="menu-list">
+      <li class="menu-group">
+        <div class="group-title" :class="{ open: isHomeManageActive }">首页配置</div>
+        <ul class="group-items">
+          <li :class="{ selected: isHomeManageActive }">
+            <router-link to="/layout/homeConfiguration/heroManage">英雄管理</router-link>
+          </li>
+          <li>
+            <router-link to="/layout/homeConfiguration/iconShow">图标展示</router-link>
+          </li>
+          <li @click="baidu">百度一下啦</li>
+          <li @click="jumpNotFound">404 页面</li>
+        </ul>
+      </li>
+      <li class="menu-group">
+        <div class="group-title" :class="{ open: isExampleManageActive }">示例页栏目</div>
+        <ul class="group-items">
+          <li :class="{ selected: isExampleManageActive }">
+            <router-link to="/pages/exampleManage/exampleForm">表单验证</router-link>
+          </li>
+        </ul>
+      </li>
+      <li class="menu-item">svg-图标</li>
+      <li class="menu-item" @click="openGithub">项目地址</li>
+    </ul>
+  </aside>
 </template>
 
 <style scoped lang="less">
-  aside {
-    flex-shrink: 0;
-    width: 220px;
-    background-color: #001529;
-    overflow: hidden auto;
-    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 1;
+aside {
+  flex-shrink: 0;
+  width: 220px;
+  background-color: #001529;
+  overflow: hidden auto;
+  transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 1;
 
-    &.collapsed {
-      width: 0;
-      opacity: 0;
-    }
+  &.collapsed {
+    width: 0;
+    opacity: 0;
+  }
 
-    .head {
-      display: flex;
-      align-items: center;
+  .head {
+    display: flex;
+    align-items: center;
+    height: 50px;
+
+    img {
+      width: 50px;
       height: 50px;
-
-      img {
-        width: 50px;
-        height: 50px;
-        margin-left: 15px;
-        margin-right: 10px;
-      }
-
-      span {
-        font-size: 20px;
-        color: #fff;
-        white-space: nowrap;
-      }
+      margin-left: 15px;
+      margin-right: 10px;
     }
 
-    .line {
-      border-top: 1px solid hsla(0, 0%, 100%, 0.05);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    span {
+      font-size: 20px;
+      color: #fff;
+      white-space: nowrap;
+    }
+  }
+
+  .line {
+    border-top: 1px solid hsla(0, 0%, 100%, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    color: #d5d5d5;
+
+    li {
+      cursor: pointer;
     }
 
-    .menu-list {
+    .menu-group {
+      margin-bottom: 4px;
+    }
+
+    .group-title {
+      padding: 10px 16px;
+      color: #fff;
+    }
+
+    .group-title.open {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .group-items {
       list-style: none;
       margin: 0;
-      padding: 8px 0;
-      color: #d5d5d5;
+      padding: 0;
 
       li {
-        cursor: pointer;
+        padding: 8px 24px;
       }
 
-      .menu-group {
-        margin-bottom: 4px;
-      }
-
-      .group-title {
-        padding: 10px 16px;
+      li.selected {
+        background: #1677ff;
         color: #fff;
       }
 
-      .group-title.open {
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .group-items {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-
-        li {
-          padding: 8px 24px;
-        }
-
-        li.selected {
-          background: #1677ff;
-          color: #fff;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-      }
-
-      .menu-item {
-        padding: 10px 16px;
+      a {
+        color: inherit;
+        text-decoration: none;
       }
     }
-  }  
+
+    .menu-item {
+      padding: 10px 16px;
+    }
+  }
+}
 </style>
