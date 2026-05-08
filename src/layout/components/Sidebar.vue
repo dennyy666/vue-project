@@ -34,7 +34,7 @@ const openGithub = () => {
           <div class="group-title" :class="{ open: isHomeManageActive }">首页配置</div>
           <ul class="group-items">
             <li :class="{ selected: isHomeManageActive }">
-              <router-link to="/pages/homeManage/heroManage">英雄管理</router-link>
+              <router-link to="/layout/homeConfiguration/heroManage">英雄管理</router-link>
             </li>
             <li @click="baidu">百度一下啦</li>
             <li @click="jumpNotFound">404 页面</li>
