@@ -33,6 +33,9 @@ const openGithub = () => {
       <li class="menu-group">
         <div class="group-title" :class="{ open: isHomeManageActive }">首页配置</div>
         <ul class="group-items">
+          <li>
+            <router-link to="/layout/homeConfiguration/echartsExample">ECharts 示例</router-link>
+          </li>
           <li :class="{ selected: isHomeManageActive }">
             <router-link to="/layout/homeConfiguration/heroManage">英雄管理</router-link>
           </li>

@@ -23,6 +23,11 @@ const router = createRouter({
           component: () => import('../views/homeConfiguration/heroManage/HeroManageView.vue'),
         },
         {
+          path: 'homeConfiguration/echartsExample',
+          name: 'echartsExample',
+          component: () => import('../views/homeConfiguration/echartsExample/EchartsExample.vue'),
+        },
+        {
           path: 'homeConfiguration/iconShow',
           name: 'iconShow',
           component: () => import('../views/homeConfiguration/iconShow/IconShow.vue'),
